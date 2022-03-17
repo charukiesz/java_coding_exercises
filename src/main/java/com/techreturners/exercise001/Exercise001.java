@@ -1,6 +1,8 @@
 package com.techreturners.exercise001;
 
+import java.text.DecimalFormat;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Exercise001 {
     public String capitalizeWord(String word) {
@@ -10,35 +12,52 @@ public class Exercise001 {
 
     public String generateInitials(String firstName, String lastName) {
         // Add your code here
-        String stringFirst = firstName;
-        String stringLast = lastName;
-        String stringInitials = stringFirst.charAt(0)  + "." + stringLast.charAt(0);
-
-        return stringInitials;
+        return firstName.charAt(0) + "." + lastName.charAt(0);
     }
 
-    public double addVat(double originalPrice, double vatRate) {
-        // Add your code here
-        Double price = originalPrice;
-        Double vat = (price * (vatRate/100));
-        Double priceWithVat =  0.0; // (originalPrice + vat);
+   public double addVat(double originalPrice, double vatRate) {
+       // Add your code here
+       Double vat = (originalPrice * (vatRate / 100));
+       DecimalFormat df = new DecimalFormat("0.00");
 
-        If (vatRate == 0.0){
-            priceWithVat = originalPrice;
-        }else{
-            priceWithVat = (originalPrice + vat);
-        }
-        return priceWithVat;
+       if (vatRate == 0.0) {
+           return originalPrice;
+       } else {
+
+           return Double.valueOf(df.format((originalPrice + vat))); 
+
+       }
+   }
+
 
 
     public String reverse(String sentence) {
-        // Add your code here
-            
-        return "";
+        // get string length
+        int n = sentence.length();
+
+        // create a character array of the same size as that of string
+        char[] temp = new char[n];
+
+        // fill character array backward with characters in the string
+        for (int i = 0; i < n; i++) {
+            temp[n - i - 1] = sentence.charAt(i);
+        }
+
+        // convert character array to string and return it
+        return String.copyValueOf(temp);
     }
 
-    public int countLinuxUsers(List<User> users) {
+        public int countLinuxUsers(List<User> users) {
         // Add your code here
-        return 0;
+            AtomicInteger count = new AtomicInteger();
+;
+            users.forEach(user ->
+            {
+                if (user.getType() == "Linux")
+                    count.getAndIncrement();
+            });
+
+
+            return count.get();
     }
 }
