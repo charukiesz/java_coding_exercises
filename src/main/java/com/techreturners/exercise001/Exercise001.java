@@ -24,7 +24,7 @@ public class Exercise001 {
            return originalPrice;
        } else {
 
-           return Double.valueOf(df.format((originalPrice + vat))); 
+           return Double.valueOf(df.format((originalPrice + vat)));
 
        }
    }
