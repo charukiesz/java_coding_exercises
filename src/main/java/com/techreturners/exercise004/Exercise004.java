@@ -2,23 +2,39 @@ package com.techreturners.exercise004;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class Exercise004 {
 
+    //Declare number of giga seconds as a constant
+    final int GIGASECONDS = 1000000000;
+
+// Instantiate and initialise a member variable for the initial date
+
+    LocalDateTime initialDate = LocalDateTime.now();
+
+
     public Exercise004(LocalDate date) {
 
-     // return date.plusDays();//  LongValueof((Math.pow(10, 9)));
+        //Assign input date to the class member variable and convert to datetime
 
-        throw new UnsupportedOperationException("You can delete this statement and add your code here.");
+        initialDate =  date.atStartOfDay();
+
     }
 
     public Exercise004(LocalDateTime dateTime) {
 
-     //   return dateTime.plusSeconds();
-        throw new UnsupportedOperationException("You can delete this statement and add your code here.");
+        //Assign input date and time to the class member variable
+
+        initialDate = dateTime;
+
     }
 
     public LocalDateTime getDateTime() {
-        throw new UnsupportedOperationException("You can delete this statement and add your code here.");
+
+        //  Calculate future date
+
+      return    initialDate.plus(GIGASECONDS, ChronoUnit.SECONDS);
+
     }
 }
