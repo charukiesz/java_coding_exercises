@@ -32,7 +32,7 @@ public class Exercise004 {
 
     public LocalDateTime getDateTime() {
 
-        //  Calculate future date
+        //  Calculate future moment
 
       return    initialDate.plus(GIGASECONDS, ChronoUnit.SECONDS);
 
