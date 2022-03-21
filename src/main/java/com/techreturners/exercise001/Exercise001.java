@@ -32,19 +32,13 @@ public class Exercise001 {
 
 
     public String reverse(String sentence) {
-        // get string length
-        int n = sentence.length();
 
-        // create a character array of the same size as that of string
-        char[] temp = new char[n];
+        StringBuilder  inputSentence = new StringBuilder(sentence); //Convert input sentence to StringBuilder object
 
-        // fill character array backward with characters in the string
-        for (int i = 0; i < n; i++) {
-            temp[n - i - 1] = sentence.charAt(i);
-        }
+       StringBuilder reversedSentence  = inputSentence.reverse();    //Reverse the order of the sentence
 
-        // convert character array to string and return it
-        return String.copyValueOf(temp);
+        return reversedSentence.toString();               //Convert the reversed sentence to a string object and return
+
     }
 
         public int countLinuxUsers(List<User> users) {
